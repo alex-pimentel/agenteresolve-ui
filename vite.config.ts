@@ -14,7 +14,7 @@ export default defineConfig({
       fileName: () => 'index.js',
     },
     rollupOptions: {
-      external: (id) => !id.startsWith('.') && !id.startsWith('\0'),
+      external: (id) => !id.startsWith('.') && !id.startsWith('/') && !id.startsWith('\0'),
       output: {
         globals: {
           react: 'React',

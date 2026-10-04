@@ -49,9 +49,7 @@ function DefaultLogo() {
   return (
     <a href="https://agenteresolve.com.br" className="flex items-center gap-2">
       <span aria-hidden className="size-7 rounded-lg bg-brand-gradient" />
-      <span className="text-sm font-semibold tracking-tight text-foreground">
-        Agenteresolve
-      </span>
+      <span className="text-sm font-semibold tracking-tight text-foreground">Agenteresolve</span>
     </a>
   );
 }
@@ -96,12 +94,7 @@ export function Header({
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-3 px-4">
         <Sheet>
           <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              aria-label="Abrir menu"
-            >
+            <Button variant="ghost" size="icon" className="md:hidden" aria-label="Abrir menu">
               <Menu />
             </Button>
           </SheetTrigger>
@@ -117,10 +110,7 @@ export function Header({
 
         {logo ?? <DefaultLogo />}
 
-        <nav
-          aria-label="Serviços"
-          className="hidden flex-1 items-center gap-1 md:flex"
-        >
+        <nav aria-label="Serviços" className="hidden flex-1 items-center gap-1 md:flex">
           {services.map((item) => (
             <ServiceLink key={item.href} item={item} />
           ))}

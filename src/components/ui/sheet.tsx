@@ -13,8 +13,10 @@ interface SheetContextValue {
 
 const SheetContext = React.createContext<SheetContextValue>({ open: false });
 
-export interface SheetProps
-  extends Omit<React.ComponentProps<typeof SheetPrimitive.Root>, 'children'> {
+export interface SheetProps extends Omit<
+  React.ComponentProps<typeof SheetPrimitive.Root>,
+  'children'
+> {
   children?: React.ReactNode;
 }
 
@@ -42,9 +44,7 @@ export function Sheet({ open, defaultOpen, onOpenChange, children, ...props }: S
   );
 }
 
-export function SheetTrigger(
-  props: React.ComponentProps<typeof SheetPrimitive.Trigger>,
-) {
+export function SheetTrigger(props: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
   return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />;
 }
 
@@ -107,22 +107,13 @@ const SIDE_MOTION = {
   bottom: { initial: { y: '100%' }, animate: { y: 0 }, exit: { y: '100%' } },
   left: { initial: { x: '-100%' }, animate: { x: 0 }, exit: { x: '-100%' } },
   right: { initial: { x: '100%' }, animate: { x: 0 }, exit: { x: '100%' } },
-} satisfies Record<
-  SheetSide,
-  { initial: object; animate: object; exit: object }
->;
+} satisfies Record<SheetSide, { initial: object; animate: object; exit: object }>;
 
-export interface SheetContentProps
-  extends React.ComponentProps<typeof SheetPrimitive.Content> {
+export interface SheetContentProps extends React.ComponentProps<typeof SheetPrimitive.Content> {
   side?: SheetSide;
 }
 
-export function SheetContent({
-  side = 'right',
-  className,
-  children,
-  ...props
-}: SheetContentProps) {
+export function SheetContent({ side = 'right', className, children, ...props }: SheetContentProps) {
   const { open } = React.useContext(SheetContext);
 
   return (

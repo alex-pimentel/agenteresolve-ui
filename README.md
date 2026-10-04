@@ -23,8 +23,8 @@ O pacote não é publicado no npm registry. Consuma por **git dependency** ou po
 // package.json do consumidor
 {
   "dependencies": {
-    "@agenteresolve/ui": "github:alex-pimentel/agenteresolve-ui"
-  }
+    "@agenteresolve/ui": "github:alex-pimentel/agenteresolve-ui",
+  },
 }
 ```
 
@@ -40,7 +40,7 @@ O npm clona o repositório e roda o script `prepare` (`npm run build`), gerando
 ```jsonc
 // package.json raiz do workspace
 {
-  "workspaces": ["ui", "apps/*"]
+  "workspaces": ["ui", "apps/*"],
 }
 ```
 
@@ -64,8 +64,8 @@ O consumidor deve ter `react` e `react-dom` **19.x**. As demais dependências
 No CSS global do consumidor, importe o Tailwind e depois os tokens do pacote:
 
 ```css
-@import "tailwindcss";
-@import "@agenteresolve/ui/styles.css";
+@import 'tailwindcss';
+@import '@agenteresolve/ui/styles.css';
 ```
 
 `styles.css` contém as CSS variables, o `@theme` do Tailwind v4 e o
@@ -119,12 +119,31 @@ A chave pode ser passada por prop (`publishableKey`) ou, em builds Vite, via
 
 ```tsx
 import {
-  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
-  Avatar, AvatarFallback, AvatarImage,
-  Badge, Button, Card, CardContent, CardHeader, CardTitle,
-  Input, Label, Separator, Skeleton, Textarea,
-  Tooltip, TooltipContent, TooltipProvider, TooltipTrigger,
-  Header, Footer, cn,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Badge,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Input,
+  Label,
+  Separator,
+  Skeleton,
+  Textarea,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+  Header,
+  Footer,
+  cn,
 } from '@agenteresolve/ui';
 ```
 
@@ -147,26 +166,26 @@ Definidos em `src/styles/globals.css` (`:root`) e expostos ao Tailwind via
 `@theme inline`. Use como utilities (`bg-background`, `text-brand`,
 `border-border`, `bg-brand-gradient`, ...) ou diretamente como CSS variables.
 
-| Variável | Papel | Valor |
-|---|---|---|
-| `--background` | fundo base (grafite quase preto) | `oklch(0.16 0.006 265)` |
-| `--foreground` | texto principal | `oklch(0.97 0.003 265)` |
-| `--surface` | superfície glass (`white/5`) | `oklch(1 0 0 / 5%)` |
-| `--surface-strong` | superfície elevada (`white/8`) | `oklch(1 0 0 / 8%)` |
-| `--card` / `--card-foreground` | card | `surface` / `foreground` |
-| `--popover` / `--popover-foreground` | popover, sheet | grafite elevado / `foreground` |
-| `--muted` / `--muted-foreground` | estados discretos | `white/6` / cinza |
-| `--border` | bordas glass (`white/10`) | `oklch(1 0 0 / 10%)` |
-| `--input` | borda de campos | `oklch(1 0 0 / 12%)` |
-| `--ring` | anel de foco | azul da marca |
-| `--brand` / `--brand-foreground` | azul de marca | `oklch(0.62 0.19 256)` |
-| `--brand-violet` | gradiente (início) | `oklch(0.62 0.23 295)` |
-| `--brand-blue` | gradiente (meio) | `oklch(0.62 0.19 256)` |
-| `--brand-cyan` | gradiente (fim) | `oklch(0.78 0.14 200)` |
-| `--brand-gradient` | gradiente violeta→azul→ciano | `linear-gradient(...)` |
-| `--destructive` / `--destructive-foreground` | erros | vermelho |
-| `--success` | sucesso | verde |
-| `--radius` | raio base (sm/md/lg/xl derivam dele) | `0.75rem` |
+| Variável                                     | Papel                                | Valor                          |
+| -------------------------------------------- | ------------------------------------ | ------------------------------ |
+| `--background`                               | fundo base (grafite quase preto)     | `oklch(0.16 0.006 265)`        |
+| `--foreground`                               | texto principal                      | `oklch(0.97 0.003 265)`        |
+| `--surface`                                  | superfície glass (`white/5`)         | `oklch(1 0 0 / 5%)`            |
+| `--surface-strong`                           | superfície elevada (`white/8`)       | `oklch(1 0 0 / 8%)`            |
+| `--card` / `--card-foreground`               | card                                 | `surface` / `foreground`       |
+| `--popover` / `--popover-foreground`         | popover, sheet                       | grafite elevado / `foreground` |
+| `--muted` / `--muted-foreground`             | estados discretos                    | `white/6` / cinza              |
+| `--border`                                   | bordas glass (`white/10`)            | `oklch(1 0 0 / 10%)`           |
+| `--input`                                    | borda de campos                      | `oklch(1 0 0 / 12%)`           |
+| `--ring`                                     | anel de foco                         | azul da marca                  |
+| `--brand` / `--brand-foreground`             | azul de marca                        | `oklch(0.62 0.19 256)`         |
+| `--brand-violet`                             | gradiente (início)                   | `oklch(0.62 0.23 295)`         |
+| `--brand-blue`                               | gradiente (meio)                     | `oklch(0.62 0.19 256)`         |
+| `--brand-cyan`                               | gradiente (fim)                      | `oklch(0.78 0.14 200)`         |
+| `--brand-gradient`                           | gradiente violeta→azul→ciano         | `linear-gradient(...)`         |
+| `--destructive` / `--destructive-foreground` | erros                                | vermelho                       |
+| `--success`                                  | sucesso                              | verde                          |
+| `--radius`                                   | raio base (sm/md/lg/xl derivam dele) | `0.75rem`                      |
 
 Tipografia: **Inter Variable** (`@fontsource-variable/inter`), aplicada via
 `--font-sans`.
@@ -177,14 +196,36 @@ Variantes de componente reutilizáveis: `buttonVariants`, `badgeVariants`.
 
 ## Scripts
 
-| Comando | Descrição |
-|---|---|
-| `npm run build` | limpa, builda ESM + declarações e copia `styles.css` |
-| `npm run lint` | ESLint (flat config) |
-| `npm run types` | `tsc --noEmit` |
-| `npm test` | Vitest + Testing Library (`Button`, `ServiceShell`, ...) |
-| `npm run test:watch` | Vitest em watch |
-| `npm run check:css` | compila o token layer com o Tailwind CLI (smoke test) |
+| Comando                 | Descrição                                                                       |
+| ----------------------- | ------------------------------------------------------------------------------- |
+| `npm run build`         | limpa, builda ESM + declarações e copia `styles.css`                            |
+| `npm run lint`          | ESLint (flat config)                                                            |
+| `npm run format`        | Prettier (write)                                                                |
+| `npm run format:check`  | Prettier (check, usado no CI)                                                   |
+| `npm run types`         | `tsc --noEmit`                                                                  |
+| `npm test`              | Vitest + Testing Library                                                        |
+| `npm run test:watch`    | Vitest em watch                                                                 |
+| `npm run test:coverage` | Vitest com cobertura V8 (limiar mínimo: 60% linhas/branches/funções/statements) |
+| `npm run check:css`     | compila o token layer com o Tailwind CLI (smoke test)                           |
+
+### CI / qualidade
+
+O repositório segue o [padrão de qualidade Agenteresolve](../ci/docs/quality-standard.md).
+No CI (`.github/workflows/ci.yml`) rodam lint, format check, types, testes,
+cobertura, build e `npm audit --audit-level=high` (workflow reutilizável
+`alex-pimentel/agenteresolve-ci`), além de gitleaks/Trivy/Semgrep e CodeQL.
+
+Para rodar os gates localmente igual ao CI:
+
+```bash
+npm ci
+npm run lint && npm run format:check && npm run types && npm test && npm run test:coverage && npm run build
+npm audit --audit-level=high
+```
+
+Um `overrides` fixa `@parcel/watcher` em `^2.5.4` para eliminar uma
+vulnerabilidade transitiva de `braces` trazida por `@tailwindcss/cli` (dependência
+de build) sem downgrade do CLI.
 
 ### Estrutura
 
@@ -203,8 +244,8 @@ src/
 ## Notas
 
 - **ESM-only.** Os consumidores são apps Vite/Inertia; não há build CJS.
-- `@clerk/clerk-react` está marcado como *deprecated* upstream (migração para
+- `@clerk/clerk-react` está marcado como _deprecated_ upstream (migração para
   `@clerk/react`), mas é o pacote exigido pelo contrato atual do design system
   (spec C §12.1). A troca pode ser feita de forma isolada em `auth-*`.
-- Nunca versione segredos. Apenas a *publishable key* do Clerk vai ao frontend;
+- Nunca versione segredos. Apenas a _publishable key_ do Clerk vai ao frontend;
   `CLERK_SECRET_KEY` fica no backend.

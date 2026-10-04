@@ -44,9 +44,7 @@ function DefaultBrand() {
   return (
     <a href="https://agenteresolve.com.br" className="flex items-center gap-2">
       <span aria-hidden className="size-7 rounded-lg bg-brand-gradient" />
-      <span className="text-sm font-semibold tracking-tight text-foreground">
-        Agenteresolve
-      </span>
+      <span className="text-sm font-semibold tracking-tight text-foreground">Agenteresolve</span>
     </a>
   );
 }

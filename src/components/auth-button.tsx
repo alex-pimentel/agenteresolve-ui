@@ -43,11 +43,7 @@ function ClerkAuthButton({
  * Sign-in entry point. Uses Clerk when configured; otherwise renders a
  * disabled button (or a custom fallback) without crashing.
  */
-export function AuthButton({
-  children = 'Entrar',
-  fallback,
-  mode = 'modal',
-}: AuthButtonProps) {
+export function AuthButton({ children = 'Entrar', fallback, mode = 'modal' }: AuthButtonProps) {
   const available = useClerkAvailable();
 
   if (!available) {

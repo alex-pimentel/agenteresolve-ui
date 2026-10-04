@@ -1,16 +1,13 @@
 export { cn } from './lib/cn';
-export {
-  ClerkAvailableContext,
-  resolveClerkPublishableKey,
-  useClerkAvailable,
-} from './lib/clerk';
+export { ClerkAvailableContext, resolveClerkPublishableKey, useClerkAvailable } from './lib/clerk';
 
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './components/ui/accordion';
 export {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from './components/ui/avatar';
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from './components/ui/accordion';
+export { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar';
 export { Badge, badgeVariants, type BadgeProps } from './components/ui/badge';
 export { Button, buttonVariants, type ButtonProps } from './components/ui/button';
 export {
@@ -39,12 +36,7 @@ export {
 } from './components/ui/sheet';
 export { Skeleton } from './components/ui/skeleton';
 export { Textarea } from './components/ui/textarea';
-export {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from './components/ui/tooltip';
+export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './components/ui/tooltip';
 
 export { AuthButton, type AuthButtonProps } from './components/auth-button';
 export { AuthProvider, type AuthProviderProps } from './components/auth-provider';

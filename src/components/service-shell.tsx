@@ -45,10 +45,7 @@ export function ServiceShell({
     <AuthProvider publishableKey={publishableKey}>
       <div
         data-slot="service-shell"
-        className={cn(
-          'flex min-h-screen flex-col bg-background text-foreground',
-          className,
-        )}
+        className={cn('flex min-h-screen flex-col bg-background text-foreground', className)}
       >
         <Header
           logo={logo}
@@ -58,10 +55,7 @@ export function ServiceShell({
           {...headerProps}
         />
 
-        <main
-          data-slot="service-main"
-          className={cn('flex-1', contentClassName)}
-        >
+        <main data-slot="service-main" className={cn('flex-1', contentClassName)}>
           <div className="mx-auto w-full max-w-6xl px-4 py-10">
             {hasHeading ? (
               <div className="mb-8 flex flex-col gap-2">

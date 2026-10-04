@@ -17,11 +17,7 @@ export function Card({ className, ...props }: React.ComponentProps<'div'>) {
 
 export function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
-    <div
-      data-slot="card-header"
-      className={cn('flex flex-col gap-1.5', className)}
-      {...props}
-    />
+    <div data-slot="card-header" className={cn('flex flex-col gap-1.5', className)} {...props} />
   );
 }
 
@@ -51,10 +47,6 @@ export function CardContent({ className, ...props }: React.ComponentProps<'div'>
 
 export function CardFooter({ className, ...props }: React.ComponentProps<'div'>) {
   return (
-    <div
-      data-slot="card-footer"
-      className={cn('flex items-center gap-2', className)}
-      {...props}
-    />
+    <div data-slot="card-footer" className={cn('flex items-center gap-2', className)} {...props} />
   );
 }

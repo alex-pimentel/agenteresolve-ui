@@ -19,9 +19,7 @@ export function AuthProvider({ publishableKey, children }: AuthProviderProps) {
 
   if (!key) {
     return (
-      <ClerkAvailableContext.Provider value={false}>
-        {children}
-      </ClerkAvailableContext.Provider>
+      <ClerkAvailableContext.Provider value={false}>{children}</ClerkAvailableContext.Provider>
     );
   }
 

@@ -1,0 +1,50 @@
+name: Publish @agenteresolve/ui
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+# ---------------------------------------------------------------------------
+# SCOPE CONSTRAINT (GitHub Packages / npm)
+#
+# GitHub Packages requires an npm package scope to match the repository
+# owner. This package is named `@agenteresolve/ui`, but the repository is
+# owned by the user `alex-pimentel` (and there is no `agenteresolve` org).
+# Therefore `npm publish` to https://npm.pkg.github.com is rejected with
+# 403 until either:
+#   1. the repository is moved under an `agenteresolve` org, or
+#   2. the package is renamed to `@alex-pimentel/ui`.
+#
+# The workflow is kept in place (and guarded) so publishing works as soon as
+# the scope is aligned. Until then, consumers must use the git dependency:
+#   "@agenteresolve/ui": "github:alex-pimentel/agenteresolve-ui#v0.1.0"
+# ---------------------------------------------------------------------------
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Publish to GitHub Packages
+        run: |
+          SCOPE="$(node -p "require('./package.json').name.split('/')[0]")"
+          if [ "$SCOPE" != "@${GITHUB_REPOSITORY_OWNER}" ]; then
+            echo "::warning::Skipping npm publish: package scope ${SCOPE} does not match repository owner @${GITHUB_REPOSITORY_OWNER}. GitHub Packages requires them to match. Consumers should use the git dependency (see README)."
+            exit 0
+          fi
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

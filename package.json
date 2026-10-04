@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Design system + Service Shell compartilhado da Agenteresolve (Tailwind v4, React 19, shadcn/ui, Clerk).",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-pimentel/agenteresolve-ui.git"
+  },
   "type": "module",
   "sideEffects": [
     "**/*.css"
@@ -85,6 +89,7 @@
     "node": ">=20"
   },
   "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
     "access": "restricted"
   }
 }

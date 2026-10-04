@@ -1,5 +1,9 @@
 # @agenteresolve/ui
 
+[![CI](https://github.com/alex-pimentel/agenteresolve-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/alex-pimentel/agenteresolve-ui/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/alex-pimentel/agenteresolve-ui)](https://github.com/alex-pimentel/agenteresolve-ui/releases/latest)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Design system + **Service Shell** compartilhado da Agenteresolve. Usado pelo site
 Laravel/Inertia e pelos serviços React (`bg-removal`, `image-up`, `qrcode`,
 `imposition`) para que todos pareçam um produto único e compartilhem o login Clerk.
@@ -11,6 +15,16 @@ Laravel/Inertia e pelos serviços React (`bg-removal`, `image-up`, `qrcode`,
 - Empacotamento: pacote único **ESM-only** com declarações TypeScript
 
 ---
+
+## Publicação (GitHub Packages)
+
+O pacote é versionado por **tag/release** e tem workflow de publicação em
+`.github/workflows/publish.yml` (tag `v*` / manual). Porém a publicação no
+GitHub Packages está **bloqueada por escopo**: o GitHub exige que o escopo npm
+seja igual ao dono do repositório, e este pacote é `@agenteresolve/ui` enquanto
+o repositório pertence a `alex-pimentel` (não existe org `agenteresolve`). O
+workflow detecta isso e **não publica** até o escopo ser alinhado. Consumidores
+devem usar a **git dependency** abaixo.
 
 ## Instalação
 

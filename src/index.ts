@@ -40,6 +40,7 @@ export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './comp
 
 export { AuthButton, type AuthButtonProps } from './components/auth-button';
 export { AuthProvider, type AuthProviderProps } from './components/auth-provider';
+export { ClerkTokenBridge, type ClerkTokenBridgeProps, type TokenGetter } from './components/clerk-token-bridge';
 export {
   Footer,
   defaultFooterColumns,
